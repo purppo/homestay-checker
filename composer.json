@@ -22,7 +22,8 @@
             "database"
         ],
 	"files": [
-	    "app/libraries/comment.php"
+	    "app/libraries/comment.php",
+	    "app/libraries/questionList.php"
 	],
         "psr-4": {
             "App\\": "app/"

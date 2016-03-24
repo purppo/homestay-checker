@@ -25,13 +25,13 @@ Route::group(['domain' => config('project.app_domain'), 'as' => 'web.', 'namespa
 
 Route::group(['domain' => config('project.api_domain'), 'as' => 'api.', 'namespace' => 'Api', 'middleware' => 'cors'], function() {
     
-    Route::resource('questions', 'QuestionsController'); 
     
     Route::group(['prefix' => 'v1', 'namespace' => 'V1'], function() {
-        Route::get('/', function () {
-            return 'v1 입니당';
-        });
+     
+	Route::resource('questions', 'QuestionsController'); 
+    
     });
+    
     Route::group(['prefix' => 'v2', 'namespace' => 'V2'], function() {
         Route::get('/', function () {
             return 'v2 입니당';
