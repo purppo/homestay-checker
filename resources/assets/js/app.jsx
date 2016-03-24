@@ -177,3 +177,4 @@ ReactDOM.render(
   <QuestionBox url="/v1/questions" pollInterval={2000} />,
   document.getElementById('content')
 );
+

@@ -59,5 +59,4 @@ if(! function_exists('questionsList')) {
 			
 	}
 }
-
 ?>

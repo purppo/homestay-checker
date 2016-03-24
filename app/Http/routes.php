@@ -36,6 +36,7 @@ Route::group(['domain' => config('project.api_domain'), 'as' => 'api.', 'namespa
         Route::get('/', function () {
             return 'v2 입니당';
         });
+
         //Route::resource('photo', 'PhotoController', ['except' => ['create', 'edit']]);
     });
    
