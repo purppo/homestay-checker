@@ -5,10 +5,9 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\resultComment as result;
-use App\Http\Controllers\Controller; 
+use App\Http\Controllers\Controller;
 
-class PhotoController extends Controller
+class QuestionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +18,7 @@ class PhotoController extends Controller
 	//80번 포트로 접근했을 때, 질문 리스트 반환
     public function index()
     {
-       $list = array();
+       $list = array();      
        
        $list[] = array(
                     'no'=>1,
@@ -67,6 +66,8 @@ class PhotoController extends Controller
        				);
        
        return json_encode($list);
+       
+       
     }
 
     /**
@@ -96,46 +97,46 @@ class PhotoController extends Controller
       	switch($question){
       		case 1:      	
       			//질문 1번이 NG인 경우
-      			return $this->jsonData($question, result::comment_1);
+      			return $this->jsonData($question, comment());
       			 
       			break;
       			 
       		case 2:
-      			return $this->jsonData($question, result::comment_2);
+      			return $this->jsonData($question, comment());
       			 
       			break;
       	
       		case 3:
-      			return $this->jsonData($question, result::comment_3);
+      			return $this->jsonData($question, comment());
       			 
       			break;
       			 
       		case 4:
-      			return $this->jsonData($question, result::comment_4);
-      			 
+      			return $this->jsonData($question, comment());
+     			 
       			break;
       			 
       		case 5:
-      			return $this->jsonData($question, result::comment_5);
+      			return $this->jsonData($question, comment());
       			 
       			break;
       				
       		case 6:
-      			return $this->jsonData($question, result::comment_6);
+      			return $this->jsonData($question, comment());
       	
       			break;
       	
       		case 7:
-      			return $this->jsonData($question, result::comment_7);
+      			return $this->jsonData($question, comment());
       	
       			break;
       		case 8:
-      			return $this->jsonData($question, result::comment_8);
+      			return $this->jsonData($question, comment());
       	
       			break;
       				
       		case 9:
-      			return $this->jsonData($question, result::comment_9);
+      			return $this->jsonData($question, comment());
       	
       			break;
       	}
@@ -195,11 +196,10 @@ class PhotoController extends Controller
     public function jsonData($que, $comm){
     
     	$response = array(
-    			"data" => "{$que}번을 위반하여 {$comm}"
+    			"data" => "{$que}번을 {$comm}"
     	);
     
     	return json_encode($response);
     
     }
 }
-
