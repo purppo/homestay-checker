@@ -92,8 +92,7 @@ class RadioBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        q: '',
-        text: '',
+        text: ''
     };
   }
   
@@ -105,16 +104,12 @@ class RadioBox extends React.Component {
   }
   
   handleQuestionSubmit(question) {
-    //let questions = this.state.data;
-    //question.id = Date.now();
-    //let newQuestions = questions.concat([question]);
-    //this.setState({data: newQuestions});
     $.ajax({
       url: this.props.url,
       dataType: 'json',
       type: 'POST',
       data: question,
-      success: fail => this.setState({fail: fail}),
+      success: res => this.setState({text: res.data}),
       error: (xhr, status, err) => {this.setState({data: questions}); console.error(this.props.url, status, err.toString())}
     });
   }
@@ -122,7 +117,8 @@ class RadioBox extends React.Component {
   handleSubmit(e) {
       let t = (e.srcElement || e.target);
       if(t.value == 1) {
-          true;
+          this.setState({text: ''});
+          return true;
       }
       this.handleQuestionSubmit({request: t.name});
       return;
@@ -134,13 +130,18 @@ class RadioBox extends React.Component {
         <label className="radio-inline">
         <input type="radio" name={this.props.q_name} 
                value="1"
-               onChange={this.onQChanged} />Yes
+               onChange={this.handleSubmit.bind(this)} />Yes
         </label>
         <label className="radio-inline">
         <input type="radio" name={this.props.q_name} 
                value="0"
                onChange={this.handleSubmit.bind(this)} />No
         </label>
+        
+        {(() => {
+            return this.state.text != '' ? <p className="alert alert-danger">{this.state.text}</p>:'';
+        })()}
+        
       </span>
     );
   }
@@ -173,6 +174,6 @@ class QuestionForm extends React.Component {
 
 
 ReactDOM.render(
-  <QuestionBox url="/photo" pollInterval={2000} />,
+  <QuestionBox url="/questions" pollInterval={2000} />,
   document.getElementById('content')
 );
