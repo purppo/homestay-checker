@@ -174,6 +174,7 @@ class QuestionForm extends React.Component {
 
 
 ReactDOM.render(
-  <QuestionBox url="/questions" pollInterval={2000} />,
+  <QuestionBox url="/v1/questions" pollInterval={2000} />,
   document.getElementById('content')
 );
+
