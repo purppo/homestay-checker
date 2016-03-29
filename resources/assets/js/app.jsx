@@ -119,7 +119,7 @@ class Counter extends React.Component {
                                 <i className="fa fa-comments fa-5x"></i>
                             </div>
                             <div className="col-xs-9 text-right">
-                                <div>Qestions</div>
+                                <div>Questions</div>
                                 <div className="huge"><h2>{this.props.q_cnt}</h2></div>
                             </div>
                         </div>
