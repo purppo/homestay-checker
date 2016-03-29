@@ -40,8 +40,8 @@ tbody tr:nth-child(odd) {
       <hr/>
       
       <div class="container">
-          <div class="table-responsive" id="content">
-        </div>
+          <div id="content">
+          </div>
       </div>
       <div class="row">
           <div class="col-xs-12">
