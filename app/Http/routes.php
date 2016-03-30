@@ -25,10 +25,8 @@ Route::group(['domain' => config('project.app_domain'), 'as' => 'web.', 'namespa
 
 Route::group(['domain' => config('project.api_domain'), 'as' => 'api.', 'namespace' => 'Api', 'middleware' => 'cors'], function() {
     
-    
     Route::group(['prefix' => 'v1', 'namespace' => 'V1'], function() {
-     
-	Route::resource('questions', 'QuestionsController'); 
+	    Route::resource('questions', 'QuestionsController'); 
     
     });
     
